@@ -4,10 +4,11 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Brave",
+      "name": "Serve Frontend",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
-      "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser-Beta\\Application\\brave.exe"
+      "preLaunchTask": "npm: start:dev",
+      "postDebugTask": "Terminate All Tasks"
     }
   ]
 }

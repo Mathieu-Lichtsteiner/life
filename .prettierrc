@@ -7,7 +7,7 @@
   "printWidth": 80,
   "bracketSameLine": true,
   "arrowParens": "always",
-  "bracketSpacing": false,
+  "bracketSpacing": true,
   "embeddedLanguageFormatting": "auto",
   "trailingComma": "none"
 }
