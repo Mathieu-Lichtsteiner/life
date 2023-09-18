@@ -32,6 +32,7 @@
     "visualstudioexptteam.intellicode-api-usage-examples",
     "visualstudioexptteam.vscodeintellicode",
     "ecmel.vscode-html-css",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "firsttris.vscode-jest-runner"
   ]
 }

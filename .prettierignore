@@ -1,5 +1,5 @@
 # generated content
 dist/
 coverage/
-.angular/
 node_modules/
+.angular
