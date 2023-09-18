@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'life-root',
+  selector: 'life-fe-calendar',
   standalone: true,
-  imports: [RouterModule],
-  template: `<router-outlet></router-outlet>`,
+  imports: [CommonModule],
+  template: `<p>fe-calendar works!</p>`,
   styles: [
     `
       :host {
@@ -15,4 +15,4 @@ import { RouterModule } from '@angular/router';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {}
+export class FrontendFeatureCalendarComponent {}
