@@ -1,6 +1,6 @@
 export const Interval = {
-  Day: 'day',
-  Week: 'week',
+  // Day: 'day',
+  // Week: 'week',
   Month: 'month',
   Year: 'year'
 } as const;
