@@ -10,6 +10,7 @@ import { Interval } from '../types/interval';
   imports: [CommonModule, FormsModule],
   template: `
     <label for="startDate">Start Date</label>
+    <!-- TODO somehow the initial value is not displayed -->
     <input id="startDate" type="date" [(ngModel)]="this.startDate" />
     <label for="interval">Interval</label>
     <select [(ngModel)]="this.interval">
@@ -65,6 +66,9 @@ export class InputComponent {
     return this._duration;
   }
   protected set duration(value) {
+    if (value <= 0) {
+      return;
+    }
     this._duration = value;
     this._durationChanged.next(value);
   }

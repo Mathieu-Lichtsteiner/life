@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ReplaySubject, combineLatest, filter, map, tap } from 'rxjs';
-import { InputComponent } from './ui/input.component';
+import { ReplaySubject, combineLatest, filter, map } from 'rxjs';
 import { Interval } from './types/interval';
+import { InputComponent } from './ui/input.component';
 
 @Component({
   standalone: true,
@@ -47,7 +47,6 @@ export class CalendarComponent {
     this._intervalSubject$,
     this._durationSubject$
   ]).pipe(
-    tap(console.log),
     filter(
       ([startDate, interval, duration]) =>
         !!startDate && !!interval && !!duration
