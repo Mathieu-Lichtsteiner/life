@@ -43,21 +43,41 @@
   },
   "generators": {
     "@nx/angular:application": {
-      "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "playwright"
-    },
-    "@nx/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nx/angular:component": {
+      "e2eTestRunner": "playwright",
+      "simpleName": true,
+      "skipModule": true,
+      "addTailwind": true,
+      "flat": true,
       "style": "scss",
       "standalone": true,
       "inlineStyle": true,
       "inlineTemplate": true,
-      "changeDetection": "OnPush"
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "simpleName": true,
+      "skipModule": true,
+      "flat": true,
+      "style": "scss",
+      "standalone": true,
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "changeDetection": "OnPush",
+      "displayBlock": true
+    },
+    "@nx/angular:component": {
+      "flat": true,
+      "style": "scss",
+      "standalone": true,
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "changeDetection": "OnPush",
+      "displayBlock": true
     }
   }
 }
