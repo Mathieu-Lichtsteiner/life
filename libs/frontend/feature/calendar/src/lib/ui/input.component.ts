@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Interval } from '../types/interval';
 
 @Component({
-  selector: 'life-input',
+  selector: 'calendar-input',
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `

@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'life-tooltip',
+  selector: 'calendar-tooltip',
   standalone: true,
   imports: [CommonModule],
   template: `<p>tooltip works!</p>`,
