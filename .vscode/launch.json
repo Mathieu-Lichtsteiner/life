@@ -4,11 +4,24 @@
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Serve Frontend",
+      "name": "Launch Chrome Debugger",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
-      "preLaunchTask": "npm: start:dev",
-      "postDebugTask": "Terminate All Tasks"
+      "presentation": {
+        "hidden": true
+      }
+    },
+    {
+      "command": "nx run planner:serve --configuration=development",
+      "name": "Debug Planner",
+      "cwd": "${workspaceFolder}",
+      "request": "launch",
+      "type": "node-terminal",
+      "serverReadyAction": {
+        "action": "startDebugging",
+        "name": "Launch Chrome Debugger",
+        "pattern": "Compiled successfully."
+      }
     }
   ]
 }
