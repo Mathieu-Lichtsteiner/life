@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { FrontendFeatureCalendarComponent } from './fe-calendar.component';
+import { CalendarComponent } from './calendar.component';
 
 export const frontendFeatureCalendarRoutes: Route[] = [
-  { path: '', component: FrontendFeatureCalendarComponent }
+  { path: '', component: CalendarComponent }
 ];
