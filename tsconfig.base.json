@@ -27,7 +27,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@life/fe/calendar": ["libs/frontend/feature/calendar/src/index.ts"]
+      "@life/fe/calendar": ["libs/frontend/feature/calendar/src/index.ts"],
+      "@life/fe/ui/charts/pie": ["libs/frontend/ui/charts/pie/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
