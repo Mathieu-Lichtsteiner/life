@@ -9,15 +9,21 @@ import { Interval } from '../types/interval';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
+    <!-- TODO test for initial value -->
     <label for="startDate">Start Date</label>
-    <!-- TODO somehow the initial value is not displayed -->
-    <input id="startDate" type="date" [(ngModel)]="this.startDate" />
+    <input
+      id="startDate"
+      type="date"
+      [(ngModel)]="this.startDate"
+      value="{{ this.startDate | date : 'yyyy-MM-dd' }}" />
+
     <label for="interval">Interval</label>
-    <select [(ngModel)]="this.interval">
+    <select id="interval" [(ngModel)]="this.interval">
       <option *ngFor="let interval of this.intervals" [value]="interval">
         {{ interval }}
       </option>
     </select>
+
     <label for="duration">Duration in Years</label>
     <!-- TODO validate minValue = today - start in years -->
     <input id="duration" type="number" [(ngModel)]="this.duration" />
@@ -32,44 +38,35 @@ import { Interval } from '../types/interval';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InputComponent {
-  private _startDate: Date = new Date(2000, 5, 7);
-  private _interval: Interval = Interval.Month;
-  private _duration = 100;
-
   protected readonly intervals = Object.values(Interval);
 
   private readonly _startDateChanged = new BehaviorSubject<Date>(
-    this._startDate
+    new Date(2000, 6, 5)
   );
   private readonly _intervalChanged = new BehaviorSubject<Interval>(
-    this._interval
+    Interval.Month
   );
-  private readonly _durationChanged = new BehaviorSubject<number>(
-    this._duration
-  );
+  private readonly _durationChanged = new BehaviorSubject<number>(100);
 
   protected get startDate(): Date {
-    return this._startDate;
+    return this._startDateChanged.getValue();
   }
   protected set startDate(value: Date) {
-    this._startDate = value;
     this._startDateChanged.next(value);
   }
   protected get interval(): Interval {
-    return this._interval;
+    return this._intervalChanged.getValue();
   }
   protected set interval(value: Interval) {
-    this._interval = value;
     this._intervalChanged.next(value);
   }
   protected get duration() {
-    return this._duration;
+    return this._durationChanged.getValue();
   }
-  protected set duration(value) {
+  protected set duration(value: number) {
     if (value <= 0) {
       return;
     }
-    this._duration = value;
     this._durationChanged.next(value);
   }
 
