@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'life-root',
+  selector: 'planner-root',
   standalone: true,
   imports: [RouterModule],
   template: `<router-outlet></router-outlet>`,
