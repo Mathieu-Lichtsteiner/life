@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'charts-pie',
+  selector: 'charts-segment',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>pie works!</p>`,
+  template: `<p>segment works!</p>`,
   styles: [
     `
       :host {
@@ -15,4 +15,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PieComponent {}
+export class SegmentComponent {}
