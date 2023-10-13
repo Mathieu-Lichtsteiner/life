@@ -1,5 +1,5 @@
 {
-  "name": "frontend-ui-charts-pie",
+  "name": "fe-ui-charts-pie",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/frontend/ui/charts/pie/src",
   "prefix": "life",

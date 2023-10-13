@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'frontend-ui-charts-pie',
+  displayName: 'fe-ui-charts-pie',
   preset: '../../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../../../../coverage/libs/frontend/ui/charts/pie',
