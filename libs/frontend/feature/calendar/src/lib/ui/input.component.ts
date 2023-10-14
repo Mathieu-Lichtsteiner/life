@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { DateValueAccessor } from 'angular-date-value-accessor';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Interval } from '../types/interval';
 
 @Component({
   selector: 'calendar-input',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DateValueAccessor],
   template: `
     <!-- TODO test for initial value -->
     <label for="startDate">Start Date</label>
@@ -15,7 +16,7 @@ import { Interval } from '../types/interval';
       id="startDate"
       type="date"
       [(ngModel)]="this.startDate"
-      value="{{ this.startDate | date : 'yyyy-MM-dd' }}" />
+      useValueAsDate />
 
     <label for="interval">Interval</label>
     <select id="interval" [(ngModel)]="this.interval">
@@ -48,8 +49,8 @@ export class InputComponent {
   );
   private readonly _durationChanged = new BehaviorSubject<number>(100);
 
-  protected get startDate(): Date {
-    return this._startDateChanged.getValue();
+  protected get startDate(): Observable<Date> {
+    return this._startDateChanged.asObservable();
   }
   protected set startDate(value: Date) {
     this._startDateChanged.next(value);
