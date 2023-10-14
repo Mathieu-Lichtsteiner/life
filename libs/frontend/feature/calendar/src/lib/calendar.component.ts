@@ -8,10 +8,10 @@ import { InputComponent } from './ui/input.component';
   standalone: true,
   imports: [CommonModule, InputComponent],
   template: `
-    <life-input
+    <calendar-input
       (startDateChanged)="setStartDate($event)"
       (intervalChanged)="setInterval($event)"
-      (durationChanged)="setDuration($event)"></life-input>
+      (durationChanged)="setDuration($event)" />
     <ul
       *ngIf="this.calendarConfig$ | async as config; else noData"
       class="grid grid-flow-row gap-3"
