@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
-import { CalendarService } from './calendar.service';
+import { CalendarStateService } from './calendar-state.service';
 import { CalendarConfig } from './types/calendar-config';
 import { DotsComponent } from './ui/dots.component';
 import { InputComponent } from './ui/input.component';
@@ -9,7 +9,7 @@ import { InputComponent } from './ui/input.component';
 @Component({
   standalone: true,
   imports: [CommonModule, InputComponent, DotsComponent],
-  providers: [CalendarService],
+  providers: [CalendarStateService],
   template: `
     <calendar-input (configChanged)="setCalendarConfig($event)" />
 
@@ -32,7 +32,7 @@ import { InputComponent } from './ui/input.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarComponent {
-  private readonly calendarService = inject(CalendarService);
+  private readonly calendarService = inject(CalendarStateService);
 
   protected readonly dotsViewModel$ = combineLatest([
     this.calendarService.dotsConfig$,

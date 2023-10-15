@@ -5,7 +5,7 @@ import { DotsConfig } from './types/dots-config';
 import { Interval } from './types/interval';
 
 @Injectable()
-export class CalendarService {
+export class CalendarStateService {
   private readonly _calendarConfig$ = new ReplaySubject<CalendarConfig>();
 
   public readonly dotsConfig$ = this._calendarConfig$.pipe(
