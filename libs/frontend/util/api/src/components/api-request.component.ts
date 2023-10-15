@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, TemplateRef } from '@angular/core';
-import { tap } from 'rxjs';
+import { map, startWith } from 'rxjs';
 import { ApiRequest } from '../types/api-request';
 
 @Component({
@@ -33,7 +33,7 @@ import { ApiRequest } from '../types/api-request';
     <ng-template #defaultErrorTemplate>
       <div>
         <em> An error occured </em>
-        <button (click)="this.reload()" [disabled]="this.loading">
+        <button (click)="this.reload()" [disabled]="this.loading$ | async">
           Reload
         </button>
       </div>
@@ -54,8 +54,6 @@ import { ApiRequest } from '../types/api-request';
   ]
 })
 export class ApiRequestComponent<T> {
-  private _loading = false;
-
   @Input({ required: true })
   public request!: ApiRequest<T>;
 
@@ -65,20 +63,14 @@ export class ApiRequestComponent<T> {
   @Input()
   public loadingTemplate: TemplateRef<string> | null = null;
 
-  // TODO this side effect is not ideal, i would prefer a pure pipe
-  protected readonly current$ = this.request.currentRequest$.pipe(
-    tap(() => (this._loading = false))
+  protected readonly current$ = this.request.currentRequest$;
+
+  protected readonly loading$ = this.current$.pipe(
+    map(({ state }) => state === 'loading'),
+    startWith(true)
   );
 
-  protected get loading() {
-    return this._loading;
-  }
-
   protected reload() {
-    if (this._loading) {
-      return;
-    }
-    this._loading = true;
     this.request.resend();
   }
 }
