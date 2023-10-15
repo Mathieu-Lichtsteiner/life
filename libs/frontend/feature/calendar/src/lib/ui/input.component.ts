@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DateValueAccessor } from 'angular-date-value-accessor';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, combineLatest, map } from 'rxjs';
+import { CalendarConfig } from '../types/calendar-config';
 import { Interval } from '../types/interval';
 
 @Component({
@@ -72,9 +73,13 @@ export class InputComponent {
   }
 
   @Output()
-  public readonly startDateChanged = this._startDateChanged.asObservable();
-  @Output()
-  public readonly intervalChanged = this._intervalChanged.asObservable();
-  @Output()
-  public readonly durationChanged = this._durationChanged.asObservable();
+  public readonly configChanged = combineLatest([
+    this._startDateChanged.asObservable(),
+    this._intervalChanged.asObservable(),
+    this._durationChanged.asObservable()
+  ]).pipe(
+    map(([startDate, interval, duration]) => {
+      return { startDate, interval, duration } as CalendarConfig;
+    })
+  );
 }
