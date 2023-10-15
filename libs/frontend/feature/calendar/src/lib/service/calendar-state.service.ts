@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject, filter, map } from 'rxjs';
-import { CalendarConfig } from './types/calendar-config';
-import { DotsConfig } from './types/dots-config';
-import { Interval } from './types/interval';
+import { CalendarConfig } from '../types/calendar-config';
+import { DotsConfig } from '../types/dots-config';
+import { Interval } from '../types/interval';
 
 @Injectable()
 export class CalendarStateService {

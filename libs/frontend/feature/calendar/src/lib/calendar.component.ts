@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { combineLatest, map } from 'rxjs';
-import { CalendarStateService } from './calendar-state.service';
+import { CalendarStateService } from './service/calendar-state.service';
 import { CalendarConfig } from './types/calendar-config';
 import { DotsComponent } from './ui/dots.component';
 import { InputComponent } from './ui/input.component';
