@@ -33,7 +33,9 @@ import { ApiRequest } from '../types/api-request';
     <ng-template #defaultErrorTemplate>
       <div>
         <em> An error occured </em>
-        <button (click)="this.reload()" [disabled]="this.loading$ | async">
+        <button
+          (click)="this.reload()"
+          [disabled]="this.loading$ | async">
           Reload
         </button>
       </div>
@@ -57,10 +59,10 @@ export class ApiRequestComponent<T> {
   @Input({ required: true })
   public request!: ApiRequest<T>;
 
-  @Input()
+  @Input({ required: false })
   public errorTemplate: TemplateRef<T> | null = null;
 
-  @Input()
+  @Input({ required: false })
   public loadingTemplate: TemplateRef<string> | null = null;
 
   protected readonly current$ = this.request.currentRequest$;

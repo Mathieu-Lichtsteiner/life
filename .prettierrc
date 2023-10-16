@@ -1,7 +1,6 @@
 {
   "singleQuote": true,
   "semi": true,
-  "editorconfig": true,
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 80,
@@ -9,5 +8,7 @@
   "arrowParens": "always",
   "bracketSpacing": true,
   "embeddedLanguageFormatting": "auto",
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "htmlWhitespaceSensitivity": "css",
+  "singleAttributePerLine": true
 }
